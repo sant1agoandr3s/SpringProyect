@@ -21,4 +21,36 @@ public class UserRepository {
         return users;
     }
 
+    public User getUser(String rut){
+        for(User user: users){
+            if(user.getRut().equals(rut)){
+                return user;
+            }
+        }
+        return null;
+    }
+    public User saveUser(User user){
+        users.add(user);
+        return user;
+    }
+
+    public User updateUser(User user){
+        int i;
+
+        for(i=0;1<users.size();i++){
+            if(users.get(i).getRut().equals(user.getRut())){
+                users.set(i, user);
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public void deleteUser(String rut){
+        for(User user: users){
+            if(user.getRut().equals(rut)){
+                users.remove(user);
+            }
+    }
+}
 }
